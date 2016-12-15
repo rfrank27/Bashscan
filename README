@@ -1,0 +1,24 @@
+NAME
+	bashscan.sh - Bashscan
+
+SYNOPSIS
+	bashscan.sh [SIGNATURE_FILE] [STARTING_PATH]
+
+DESCRIPTION
+	Bashscan is a simple commandline utility that analyzes binary strings in a file and compares them to strings in a signatures file.
+
+	The tool will recusively go through all files in the the specified STARTING_PATH and look for binary using the strings utility and find all the matching strings in the given SIGNATURE file
+
+	Numerous files are saved in the created bashscan directory
+		badFiles.txt - list of unique file paths that contain signatures
+		fileList.txt - list of files that were searched
+		report.txt   - another copy of the report generated at the end of execution
+		virusLog.txt - list of each match
+					   [path]:[string_number]:[mathing_line]
+					   		path          - absolute path of the matching file
+					   		string_number - the nth string in $(strings [path])
+					   		matching_line - the full string with the matching signature in red
+						this file has colored output so it is recomended to just cat it out to the command line instead of using a text editor
+
+AUTHOR
+	Written by Ryan Frank
